@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+
+// STEP 1: IMPORT THE ACTION CREATOR
 import { addRestaurant } from "./restaurantsSlice";
-// STEP 1: IMPORT HOOK 
-import { useDispatch } from "redux";
+
+// STEP 2: IMPORT useDispatch HOOK 
+import { useDispatch } from "react-redux";
 
 function RestaurantInput() {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
+
+  // STEP 3: DECLARE THE DISPATCH VARIABLE
+  const dispatch = useDispatch();
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -17,7 +23,8 @@ function RestaurantInput() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // add missing code
+    // STEP 4: DISPATCH USING THE ACTION CREATOR
+    dispatch(addRestaurant({ name, location }));
   }
 
   return (

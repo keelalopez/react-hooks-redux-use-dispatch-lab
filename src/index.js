@@ -6,7 +6,10 @@ import { createStore } from "redux";
 
 import restaurantsReducer from "./features/restaurant/restaurantsSlice";
 
-const store = createStore(restaurantsReducer);
+const store = createStore(
+  restaurantsReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,3 +17,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
