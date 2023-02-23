@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { addRestaurant } from "./restaurantsSlice";
+// STEP 1: IMPORT HOOK 
+import { useDispatch } from "redux";
 
 function RestaurantInput() {
   const [name, setName] = useState("");
